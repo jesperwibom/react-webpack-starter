@@ -1,0 +1,12 @@
+span.likes-count {
+	font-size: 28pt;
+	color: red;
+}
+body {
+	background-color: blue;
+}
+
+button {
+	display: block;
+	width: 80vw;
+}
