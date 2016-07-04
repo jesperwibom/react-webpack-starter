@@ -1,5 +1,6 @@
-### Project ###
-build
+### Project specific ###
+src/build
+dist
 
 ### Git ###
 *.orig
