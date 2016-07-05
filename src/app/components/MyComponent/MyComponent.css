@@ -1,9 +1,10 @@
 span.likes-count {
 	font-size: 28pt;
 	color: red;
+	background-color: yellow;
 }
 body {
-	background-color: blue;
+	background: linear-gradient(-45deg, pink, grey);
 }
 
 button {

@@ -1,6 +1,8 @@
 var pathUtil = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 
 var DIR = {
 	APP: pathUtil.resolve(__dirname, 'src/app'),
@@ -9,12 +11,9 @@ var DIR = {
 };
 
 var HtmlTemplateConfig = new HtmlWebpackPlugin({
-  // HtmlWebpackPlugin:
 	title: "React app",
 	hash: true,
   filename: 'index.html',
-
-	// HtmlWebpackTemplate:
   inject: false,
   template: require('html-webpack-template'),
   //template: 'node_modules/html-webpack-template/index.ejs',
@@ -23,25 +22,15 @@ var HtmlTemplateConfig = new HtmlWebpackPlugin({
   // Optional
   appMountId: 'app',
 	mobile: true
-
 	/*
   baseHref: 'http://example.com/awesome',
   devServer: 3001,
   googleAnalytics: {
     trackingId: 'UA-XXXX-XX',
     pageViewOnLoad: true
-  },
-  window: {
-    env: {
-      apiHost: 'http://myapi.com/api/v1'
-    }
   }
 	*/
-
-  // and any other config options from html-webpack-plugin
-  // https://github.com/ampedandwired/html-webpack-plugin#configuration
 });
-
 
 var config = {
 	entry: DIR.APP + '/app.js',
@@ -62,10 +51,22 @@ var config = {
 			},
 			{
 	      test: /\.css$/,
-	      loader: 'style-loader!css-loader'
-	    }
+	      loader: 'style!css?sourceMap!postcss'
+	    },
+			{
+        test: /\.(scss|sass)$/,
+        loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+      }
 		]
 	},
+	postcss: function () {
+    return [
+			precss,
+			autoprefixer({
+				browsers: ['last 4 versions','last 4 Android versions','last 4 ChromeAndroid versions','last 4 FirefoxAndroid versions'],
+				remove: false
+			})];
+  },
 	resolve: {
 		extensions: ['', '.js', '.jsx']
 	},

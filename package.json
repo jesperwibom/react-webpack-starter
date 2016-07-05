@@ -4,7 +4,9 @@
   "description": "Empty starter project for react with webpack.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -d",
+    "serve": "webpack-dev-server --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/monodrom/react-webpack-starter#readme",
   "devDependencies": {
+    "autoprefixer": "^6.3.7",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -29,6 +32,10 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.22.0",
     "html-webpack-template": "^5.0.0",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
+    "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"

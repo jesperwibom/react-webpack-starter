@@ -23,6 +23,7 @@ class MyComponent extends Component {
 	render(){
 		return (
 			<div>
+				<h4>MyComponent</h4>
 				Likes : <span className="likes-count">{this.state.likesCount}</span>
 				<button onClick={this.onLike}>Like me!</button>
 			</div>
